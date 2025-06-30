@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use app\Models\user;
+use App\Models\User;
 
 class UserRepo{
 
     //all users
     public function getAll(){
-        return user::all();    
+        return User::all();    
     }
 }

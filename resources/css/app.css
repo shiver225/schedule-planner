@@ -1,2 +1,106 @@
-@import 'tailwindcss';
-@import "tailwindcss-primeui";
+/* Base styles */
+:root {
+    --primary-color: #3B82F6;
+    --surface-ground: #F8F9FA;
+    --surface-card: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--surface-ground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Utility classes */
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.bg-blue-50 {
+    background-color: #EFF6FF;
+}
+
+.bg-gray-100 {
+    background-color: var(--surface-ground);
+}
+
+.surface-card {
+    background-color: var(--surface-card);
+    border-radius: 6px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+/* Layout utilities */
+.flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Spacing utilities */
+.p-4 {
+    padding: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+/* Width utilities */
+.w-full {
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .lg\:w-4 {
+        width: 33.3333%;
+    }
+}
+
+/* Typography */
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-blue-500 {
+    color: var(--primary-color);
+}
+
+/* Border utilities */
+.border-round {
+    border-radius: 6px;
+}
+
+/* Shadow utilities */
+.shadow-2 {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 2px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.12);
+}

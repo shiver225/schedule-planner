@@ -1,20 +1,27 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router';
+import Button from 'primevue/button';
+
+const router = useRouter();
+
+const handleLogout = async () => {
+    try {
+        await axios.post('/api/logout');
+        localStorage.removeItem('token');
+        delete axios.defaults.headers.common['Authorization'];
+        router.push('/login');
+    } catch (error) {
+        console.error('Logout failed:', error);
+    }
+};
 </script>
+
 <template>
-<div>
-    <div class="home">
-        <h1>Home</h1>
-        <p>Welcome to the home page!</p>
-        <p>Here you can find information about the project.</p>
+    <div class="p-4">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Schedule Planner</h1>
+        <p class="mb-4">You are logged in!</p>
+        
+        <Button label="View Users" @click="$router.push('/users')" class="mr-2" />
+        <Button label="Logout" severity="danger" @click="handleLogout" />
     </div>
-    <div>
-        <RouterLink
-        :to="'/users'"
-        class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
-        >
-        Users
-        </RouterLink>
-    </div>
-</div>
 </template>

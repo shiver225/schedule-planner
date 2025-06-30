@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use App\Repositories\UserRepo;
 
 class UserController extends Controller
@@ -20,6 +20,11 @@ class UserController extends Controller
     }
 
     public function index(){
-        return response()->json($this->userRepo->getAll());
+        try {
+            $users = $this->userRepo->getAll();
+            return response()->json($users);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }
