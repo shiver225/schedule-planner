@@ -7,7 +7,7 @@ use app\Models\user;
 class UserRepo{
 
     //all users
-    public function geAll(){
+    public function getAll(){
         return user::all();    
     }
 }

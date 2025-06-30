@@ -1,29 +1,21 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-export default{
-    name: "UserList",
-    data(){
-        return{
-            users: []
-        }
-    },
-    created(){
-        this.fetchUsers();
-    },
-    methods: {
-        async fetchUsers(){
-            try{
-                const response = await axios.get('/users');
-                this.users = response.data;
-            } catch(error){
-                console.error('Error fetching users: ', error);
-            }
-        },
-    },
+const users = ref([]);
+
+const fetchUsers = async () => {
+    try {
+        const response = await axios.get('/api/users');
+        users.value = response.data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
 };
 
-
+onMounted(() => {
+    fetchUsers();
+});
 </script>
 
 <template>

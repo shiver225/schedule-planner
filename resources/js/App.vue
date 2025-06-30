@@ -1,13 +1,9 @@
 <script setup>
 import HomeView from './views/HomeView.vue';
-import UserList from './views/UserRepoView.vue';
-
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
     <HomeView />
-
-    <div id="app">
-        <UserList />
-    </div>
+    <RouterView />
 </template>
